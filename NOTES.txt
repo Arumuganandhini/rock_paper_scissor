@@ -1,0 +1,26 @@
+
+                                    WEBDEVELOPMENT INTRODUCTION :
+
+web developmentis the process of creating websites or web applications that are accessible through the internet 
+key points:
+  *.Involves designing ,coding and maintaing websites
+  *.covers both frontend and backend
+  *.A web developer builds user interfaces and server logic
+  *.Can include static websites,dynamic apps,and web services
+  *.Requires knowledge of web technologies and tools
+        
+
+what is it?
+   Encompasses frontend ,backend and full -stack development
+
+   Includes design, structure,logic and performance
+
+   can be done using language like html,css,js ,php and python
+
+   Involves both visual innterfaces and server/database integration
+
+   Aims for user-friendly ,responsive and efficient web solutions
+
+   http -used to render web pages
+   https -secure version of http
+   git  
