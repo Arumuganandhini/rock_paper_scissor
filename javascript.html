@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1(){
+            document.getElementById("demo").innerHTML ="Hiiii guys I am Learning JavaScript";
+        }
+    </script>   
+<body>
+<p id="demo" onclick="fun1()">Click  me </p>
+<!--<button id="demo1" onclick="greet()">Click me to greet</button>
+<script src="script.js"></script>
+</body>
+</html>-->
+</body>
+</html>
+<hr>
+<h1>Function  Expression!</h1>
+<script>
+    var a=10;
+    var b=30;
+    const add=function(a,b){
+        return a*b;
+    }
+    document.write(add(a,b));
+    document.write("<br>")
+    document.write(add(2,90));
+
+</script>
+<hr>
+<h1>Constructor Function!.......</h1>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.greet = function() {
+            return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+        };
+    }
+
+    const person1 = new Person("John", 25);
+    const person2 = new Person("Jane", 30);
+
+    document.write(person1.greet() + "<br>");
+    document.write(person2.greet());
+
+
+    function * count(){
+        yield 1;
+        yield 2;
+        yield 3;
+        yield 4;
+    }
+    const counter =count();
+    console.log(counter.next().value); // 1
+    console.log(counter.next().value); // 2
+    console.log(counter.next().value); // 3

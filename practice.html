@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/008/356/977/small_2x/rock-paper-scissors-gambling-hand-game-for-all-of-ages-and-sex-this-is-asian-male-hands-post-on-white-background-photo.jpg" alt="Rock Paper Scissors">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+        }
+        h1 {
+            text-shadow: 2px 4px 6px red, 2px 2px 4px blue;
+            color: white;
+            margin-bottom: 10px;
+        }
+        h1.underline {
+            text-decoration: underline;
+            color: blue;
+            text-decoration-color: darkmagenta;
+        }
+        marquee {
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        h2 {
+            color: green;
+            text-shadow: 2px 2px 3px yellow, 2px 2px 3px red;
+            margin: 20px 0;
+        }
+        img {
+            width: 50%;
+            max-width: 400px;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #rock {
+            background-color: lightblue;
+            color: darkblue;
+        }
+        #paper {
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+        #scissors {
+            background-color: lightcoral;
+            color: darkred;
+        }
+        #reset {
+            background-color: #ffd700;
+            color: #333;
+        }
+        #resultDisplay {
+            font-size: 20px;
+            color: purple;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        #scoreDisplay {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        /* Sound toggle button */
+        .sound-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .sound-toggle:hover {
+            background-color: #0056b3;
+        }
+        
+        .sound-toggle.muted {
+            background-color: #dc3545;
+        }
+        
+        @media (max-width: 600px) {
+            img {
+                width: 80%;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            .sound-toggle {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="sound-toggle" onclick="toggleSound()" id="soundToggle">🔊</button>
+    
+    <h1>Welcome to Rock Paper Scissors</h1>
+    <h1 class="underline">Rock Paper Scissors Game</h1>
+    <marquee>Let's Play!</marquee>
+    <em><h2>Choose Your Move</h2></em>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/008/356/977/small_2x/rock-paper-scissors-gambling-hand-game-for-all-of-ages-and-sex-this-is-asian-male-hands-post-on-white-background-photo.jpg" alt="Rock Paper Scissors">
+    <div class="button-container">
+        <button id="rock" onclick="playGame('rock')">Rock</button>
+        <button id="paper" onclick="playGame('paper')">Paper</button>
+        <button id="scissors" onclick="playGame('scissors')">Scissors</button>
+    </div>
+    <p id="resultDisplay">Choose your move!</p>
+    <p id="scoreDisplay">Player: 0 | Computer: 0</p>
+    <button id="reset" onclick="resetGame()">Reset Game</button>
+
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let soundEnabled = true;
+
+        // Professional Gaming Sound System
+        function createAdvancedSound(config) {
+            if (!soundEnabled) return;
+            
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const masterGain = audioContext.createGain();
+                masterGain.connect(audioContext.destination);
+                masterGain.gain.setValueAtTime(config.volume || 0.3, audioContext.currentTime);
+                
+                config.sounds.forEach((sound, index) => {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    const filter = audioContext.createBiquadFilter();
+                    
+                    // Create effects chain: oscillator -> filter -> gain -> master
+                    oscillator.connect(filter);
+                    filter.connect(gainNode);
+                    gainNode.connect(masterGain);
+                    
+                    // Configure oscillator
+                    oscillator.frequency.setValueAtTime(sound.freq, audioContext.currentTime + sound.delay);
+                    if (sound.freqSweep) {
+                        oscillator.frequency.exponentialRampToValueAtTime(
+                            sound.freqSweep, 
+                            audioContext.currentTime + sound.delay + sound.duration
+                        );
+                    }
+                    oscillator.type = sound.type || 'sine';
+                    
+                    // Configure filter for professional sound
+                    filter.type = sound.filterType || 'lowpass';
+                    filter.frequency.setValueAtTime(sound.filterFreq || 2000, audioContext.currentTime + sound.delay);
+                    filter.Q.setValueAtTime(sound.filterQ || 1, audioContext.currentTime + sound.delay);
+                    
+                    // Configure envelope
+                    const startTime = audioContext.currentTime + sound.delay;
+                    const attackTime = sound.attack || 0.01;
+                    const releaseTime = sound.release || 0.1;
+                    
+                    gainNode.gain.setValueAtTime(0, startTime);
+                    gainNode.gain.linearRampToValueAtTime(sound.gain || 0.5, startTime + attackTime);
+                    gainNode.gain.setValueAtTime(sound.gain || 0.5, startTime + sound.duration - releaseTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + sound.duration);
+                    
+                    oscillator.start(startTime);
+                    oscillator.stop(startTime + sound.duration);
+                });
+            } catch (error) {
+                console.log('Advanced audio not supported');
+            }
+        }
+
+        // Professional Gaming Sound Effects
+        function playMoveSound() {
+            createAdvancedSound({
+                volume: 0.4,
+                sounds: [
+                    { freq: 800, duration: 0.08, type: 'square', gain: 0.3, delay: 0, attack: 0.005, release: 0.03, filterFreq: 1200 },
+                    { freq: 1200, duration: 0.06, type: 'sine', gain: 0.2, delay: 0.02, attack: 0.005, release: 0.02, filterFreq: 2000 }
+                ]
+            });
+        }
+
+        function playWinSound() {
+            // Epic victory fanfare with layered sounds
+            createAdvancedSound({
+                volume: 0.5,
+                sounds: [
+                    // Main melody
+                    { freq: 523, duration: 0.2, type: 'triangle', gain: 0.4, delay: 0, attack: 0.02, release: 0.05, filterFreq: 3000 },
+                    { freq: 659, duration: 0.2, type: 'triangle', gain: 0.4, delay: 0.15, attack: 0.02, release: 0.05, filterFreq: 3000 },
+                    { freq: 784, duration: 0.2, type: 'triangle', gain: 0.4, delay: 0.3, attack: 0.02, release: 0.05, filterFreq: 3000 },
+                    { freq: 1047, duration: 0.4, type: 'triangle', gain: 0.5, delay: 0.45, attack: 0.02, release: 0.1, filterFreq: 4000 },
+                    // Bass layer
+                    { freq: 131, duration: 0.3, type: 'square', gain: 0.3, delay: 0, attack: 0.01, release: 0.08, filterFreq: 800 },
+                    { freq: 165, duration: 0.3, type: 'square', gain: 0.3, delay: 0.3, attack: 0.01, release: 0.08, filterFreq: 800 },
+                    // Harmonic layer
+                    { freq: 1568, duration: 0.15, type: 'sine', gain: 0.2, delay: 0.1, attack: 0.01, release: 0.04, filterFreq: 5000 },
+                    { freq: 2094, duration: 0.25, type: 'sine', gain: 0.25, delay: 0.5, attack: 0.01, release: 0.06, filterFreq: 6000 }
+                ]
+            });
+        }
+
+        function playLoseSound() {
+            // Dramatic defeat sound with heavy bass
+            createAdvancedSound({
+                volume: 0.4,
+                sounds: [
+                    // Main descending line
+                    { freq: 440, duration: 0.25, type: 'sawtooth', gain: 0.4, delay: 0, attack: 0.02, release: 0.08, filterFreq: 1500, freqSweep: 220 },
+                    { freq: 330, duration: 0.25, type: 'sawtooth', gain: 0.4, delay: 0.2, attack: 0.02, release: 0.08, filterFreq: 1200, freqSweep: 165 },
+                    { freq: 220, duration: 0.4, type: 'sawtooth', gain: 0.5, delay: 0.4, attack: 0.02, release: 0.15, filterFreq: 800, freqSweep: 110 },
+                    // Heavy bass hit
+                    { freq: 55, duration: 0.3, type: 'square', gain: 0.6, delay: 0.1, attack: 0.005, release: 0.1, filterFreq: 300 },
+                    { freq: 82, duration: 0.2, type: 'square', gain: 0.4, delay: 0.3, attack: 0.005, release: 0.08, filterFreq: 400 }
+                ]
+            });
+        }
+
+        function playTieSound() {
+            // Neutral but engaging tie sound
+            createAdvancedSound({
+                volume: 0.35,
+                sounds: [
+                    { freq: 600, duration: 0.12, type: 'triangle', gain: 0.4, delay: 0, attack: 0.01, release: 0.04, filterFreq: 1800 },
+                    { freq: 600, duration: 0.12, type: 'triangle', gain: 0.4, delay: 0.15, attack: 0.01, release: 0.04, filterFreq: 1800 },
+                    { freq: 450, duration: 0.08, type: 'sine', gain: 0.3, delay: 0.05, attack: 0.005, release: 0.03, filterFreq: 1200 },
+                    { freq: 450, duration: 0.08, type: 'sine', gain: 0.3, delay: 0.2, attack: 0.005, release: 0.03, filterFreq: 1200 }
+                ]
+            });
+        }
+
+        function playResetSound() {
+            // Modern UI reset sound
+            createAdvancedSound({
+                volume: 0.3,
+                sounds: [
+                    { freq: 1000, duration: 0.08, type: 'sine', gain: 0.3, delay: 0, attack: 0.005, release: 0.03, filterFreq: 2500, freqSweep: 1500 },
+                    { freq: 800, duration: 0.06, type: 'triangle', gain: 0.25, delay: 0.04, attack: 0.005, release: 0.02, filterFreq: 2000, freqSweep: 600 }
+                ]
+            });
+        }
+
+        function playHoverSound() {
+            // Subtle but professional hover effect
+            createAdvancedSound({
+                volume: 0.15,
+                sounds: [
+                    { freq: 800, duration: 0.05, type: 'sine', gain: 0.3, delay: 0, attack: 0.002, release: 0.02, filterFreq: 2000, freqSweep: 1000 }
+                ]
+            });
+        }
+
+        function playButtonClickSound() {
+            // Sharp, satisfying click
+            createAdvancedSound({
+                volume: 0.25,
+                sounds: [
+                    { freq: 1200, duration: 0.04, type: 'square', gain: 0.4, delay: 0, attack: 0.001, release: 0.015, filterFreq: 1500 },
+                    { freq: 2400, duration: 0.02, type: 'sine', gain: 0.2, delay: 0.01, attack: 0.001, release: 0.01, filterFreq: 3000 }
+                ]
+            });
+        }
+
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            return choices[Math.floor(Math.random() * 3)];
+        }
+
+        function determineWinner(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return "It's a tie!";
+            }
+            if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                playerScore++;
+                return 'You win!';
+            }
+            computerScore++;
+            return 'Computer wins!';
+        }
+
+        function playGame(playerChoice) {
+            // Play move sound
+            playMoveSound();
+
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(playerChoice, computerChoice);
+
+            // Play result sound after a short delay
+            setTimeout(() => {
+                if (result.includes('You win')) {
+                    playWinSound();
+                } else if (result.includes('Computer wins')) {
+                    playLoseSound();
+                } else {
+                    playTieSound();
+                }
+            }, 300);
+
+            // Update result and score displays
+            document.getElementById('resultDisplay').textContent = 
+                `You chose ${playerChoice}. Computer chose ${computerChoice}. ${result}`;
+            document.getElementById('scoreDisplay').textContent = 
+                `Player: ${playerScore} | Computer: ${computerScore}`;
+        }
+
+        function resetGame() {
+            playerScore = 0;
+            computerScore = 0;
+            document.getElementById('resultDisplay').textContent = 'Choose your move!';
+            document.getElementById('scoreDisplay').textContent = 'Player: 0 | Computer: 0';
+            playResetSound();
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const soundToggle = document.getElementById('soundToggle');
+            
+            if (soundEnabled) {
+                soundToggle.textContent = '🔊';
+                soundToggle.classList.remove('muted');
+                // Play a professional test sound when enabling
+                playButtonClickSound();
+            } else {
+                soundToggle.textContent = '🔇';
+                soundToggle.classList.add('muted');
+            }
+        }
+
+        // Add professional hover and click sounds to buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.id !== 'soundToggle') {
+                btn.addEventListener('mouseenter', () => {
+                    if (soundEnabled) {
+                        playHoverSound();
+                    }
+                });
+                
+                btn.addEventListener('mousedown', () => {
+                    if (soundEnabled) {
+                        playButtonClickSound();
+                    }
+                });
+            }
+        });
+
+        // Fallback sound effects using external URLs (will work if available)
+        const fallbackSounds = {
+            moveSound: new Audio('https://www.soundjay.com/buttons/button-09.mp3'),
+            winSound: new Audio('https://www.soundjay.com/buttons/button-3.mp3'),
+            loseSound: new Audio('https://www.soundjay.com/buttons/button-2.mp3'),
+            tieSound: new Audio('https://www.soundjay.com/buttons/button-4.mp3')
+        };
+
+        // Set low volume for fallback sounds
+        Object.values(fallbackSounds).forEach(sound => {
+            sound.volume = 0.3;
+        });
+
+        // Enhanced sound functions that try fallback first, then use generated sounds
+        function playEnhancedMoveSound() {
+            if (soundEnabled) {
+                fallbackSounds.moveSound.play().catch(() => {
+                    playMoveSound();
+                });
+            }
+        }
+
+        function playEnhancedWinSound() {
+            if (soundEnabled) {
+                fallbackSounds.winSound.play().catch(() => {
+                    playWinSound();
+                });
+            }
+        }
+
+        function playEnhancedLoseSound() {
+            if (soundEnabled) {
+                fallbackSounds.loseSound.play().catch(() => {
+                    playLoseSound();
+                });
+            }
+        }
+
+        function playEnhancedTieSound() {
+            if (soundEnabled) {
+                fallbackSounds.tieSound.play().catch(() => {
+                    playTieSound();
+                });
+            }
+        }
+
+        // Update the main game function to use enhanced sounds
+        function playGame(playerChoice) {
+            // Play move sound
+            playEnhancedMoveSound();
+
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(playerChoice, computerChoice);
+
+            // Play result sound after a short delay
+            setTimeout(() => {
+                if (result.includes('You win')) {
+                    playEnhancedWinSound();
+                } else if (result.includes('Computer wins')) {
+                    playEnhancedLoseSound();
+                } else {
+                    playEnhancedTieSound();
+                }
+            }, 300);
+
+            // Update result and score displays
+            document.getElementById('resultDisplay').textContent = 
+                `You chose ${playerChoice}. Computer chose ${computerChoice}. ${result}`;
+            document.getElementById('scoreDisplay').textContent = 
+                `Player: ${playerScore} | Computer: ${computerScore}`;
+        }
+    </script>
+</body>
+</html>

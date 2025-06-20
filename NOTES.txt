@@ -23,4 +23,560 @@ what is it?
 
    http -used to render web pages
    https -secure version of http
-   git  
+  
+  day2
+  css selectors:
+  1. Element Selector: Selects all elements of a specific type.
+     Example: `p { color: blue; }` selects all `<p>` elements.  
+  2. Class Selector: Selects elements with a specific class.
+      Example: `.my-class { font-size: 16px; }` selects all elements with the class "my-class".
+  3. ID Selector: Selects a single element with a specific ID.
+      Example: `#my-id { background-color: yellow; }` selects the element with the ID "my-id".      
+  4. Attribute Selector: Selects elements based on an attribute or attribute value.
+      Example: `input[type="text"] { border: 1px solid black; }` selects all `<input>` elements with type "text".
+  5. Descendant Selector: Selects elements that are descendants of a specified element.       
+      Example: `div p { color: red; }` selects all `<p>` elements inside `<div>` elements.
+  6. Child Selector: Selects elements that are direct children of a specified element.  
+      Example: `ul > li { list-style-type: none; }` selects all `<li>` elements that are direct children of `<ul>`.
+  7. Adjacent Sibling Selector: Selects an element that is immediately preceded by a specified element.
+      Example: `h1 + p { margin-top: 10px; }` selects the first `<p>` element immediately following an `<h1>`.
+  8. General Sibling Selector: Selects all elements that are siblings of a specified element.
+      Example: `h2 ~ p { color: green; }` selects all `<p>` elements that are siblings of an `<h2>`.
+  9. Pseudo-class Selector: Selects elements based on their state or position.
+      Example: `a:hover { text-decoration: underline; }` applies styles to links when hovered over.
+  10. Pseudo-element Selector: Selects a specific part of an element.
+      Example: `p::first-line { font-weight: bold; }` styles the first line of all `<p>` elements.
+  11. Grouping Selector: Combines multiple selectors to apply the same styles.  
+      Example: `h1, h2, h3 { margin-bottom: 20px; }` applies the same bottom margin to all `<h1>`, `<h2>`, and `<h3>` elements.
+  12. Universal Selector: Selects all elements on the page.
+      Example: `* { box-sizing: border-box; }` applies the box-sizing property to all elements.
+  13. Negation Pseudo-class: Selects elements that do not match a specified selector. 
+      Example: `:not(.exclude) { color: gray; }` selects all elements except those with the class "exclude".
+  14. Attribute Value Selector: Selects elements based on a specific attribute value.
+      Example: `a[href^="https"] { color: green; }` selects all `<a>` elements with an "href" attribute that starts with "https".
+  15. Attribute Substring Selector: Selects elements based on a substring of an attribute value.  
+      Example: `input[name*="email"] { border-color: blue; }` selects all `<input>` elements with a "name" attribute containing "email".
+  16. :nth-child() Selector: Selects elements based on their position among siblings.
+      Example: `li:nth-child(2) { color: red; }` selects the second `<li>` element among its siblings.
+  17. :nth-of-type() Selector: Selects elements based on their type and position among siblings.
+      Example: `p:nth-of-type(3) { font-style: italic; }` selects the third `<p>` element among its siblings.
+  18. :first-child Selector: Selects the first child element of a parent. 
+      Example: `ul li:first-child { font-weight: bold; }` selects the first `<li>` element inside a `<ul>`.
+  19. :last-child Selector: Selects the last child element of a parent.
+      Example: `div p:last-child { color: orange; }` selects the last `<p>` element inside a `<div>`.
+  20. :only-child Selector: Selects an element that is the only child of its parent.
+
+  Example: `span:only-child { color: purple; }` selects a `<span>` element that is the only child of its parent.
+  21. :empty Selector: Selects elements that have no children.
+      Example: `div:empty { display: none; }` hides any `<div>` elements that are empty.
+  22. :checked Selector: Selects checked input elements (e.g., checkboxes, radio buttons).
+      Example: `input[type="checkbox"]:checked { background-color: lightgreen; }` styles checked checkboxes.
+  23. :disabled Selector: Selects disabled form elements.
+      Example: `input:disabled { opacity: 0.5; }` styles disabled input elements with reduced opacity.
+  24. :enabled Selector: Selects enabled form elements.
+      Example: `input:enabled { border: 1px solid blue; }` styles enabled input elements with a blue border.
+  25. :focus Selector: Selects an element that has focus (e.g., when clicked or tabbed to).
+      Example: `input:focus { outline: 2px solid orange; }` styles an input element when it is focused.
+  26. :valid Selector: Selects valid form elements (e.g., inputs with correct data).  
+      Example: `input:valid { border-color: green; }` styles valid input elements with a green border.
+  27. :invalid Selector: Selects invalid form elements (e.g., inputs with incorrect data).
+      Example: `input:invalid { border-color: red; }` styles invalid input elements with a red border.  
+  1.Box model
+    the CSS box model is a fundamental concept that describes how elements are structured and displayed on a web page. It consists of the following components:
+  1. Content: The actual content of the element, such as text or images.    
+  2. Padding: The space between the content and the border. It creates an inner margin around the content.
+  3. Border: A line that surrounds the padding and content. It can have different styles, widths, and colors.
+  4. Margin: The outermost space that separates the element from other elements. It creates an outer margin around the border.
+
+  2.background:
+  The background property in CSS is used to set the background of an element. It can include color, image, position, size, and repeat behavior. Here are some key properties related to backgrounds:
+  1. background-color: Sets the background color of an element.
+     Example: `background-color: lightblue;`
+
+  3.Border:
+   defines the outer edge of an element.]
+   border-width: Sets the width of the border.
+    Example: `border-width: 2px;`
+  4.margin:
+   The margin property in CSS is used to create space outside an element's border. It defines the outermost area around an element, separating it from other elements. Here are some key points about margins:
+   1. margin-top: Sets the top margin of an element.
+      Example: `margin-top: 20px;`
+   2. margin-right: Sets the right margin of an element.
+      Example: `margin-right: 15px;`
+   3. margin-bottom: Sets the bottom margin of an element.
+      Example: `margin-bottom: 10px;`
+   4. margin-left: Sets the left margin of an element.
+      Example: `margin-left: 5px;`
+   5. margin: A shorthand property that sets all four margins at once.
+      Example: `margin: 10px 15px 20px 25px;` (top, right, bottom, left)
+  5.padding:
+    The padding property in CSS is used to create space inside an element's border, between the content and the border. It defines the inner area of an element. Here are some key points about padding:
+    1. padding-top: Sets the top padding of an element.
+        Example: `padding-top: 20px;`
+    2. padding-right: Sets the right padding of an element.
+        Example: `padding-right: 15px;`
+    3. padding-bottom: Sets the bottom padding of an element.
+        Example: `padding-bottom: 10px;`
+    4. padding-left: Sets the left padding of an element.
+        Example: `padding-left: 5px;`
+    5. padding: A shorthand property that sets all four paddings at once.
+        Example: `padding: 10px 15px 20px 25px;` (top, right, bottom, left)
+  6.Outline:
+    The outline property in CSS is used to create a line that surrounds an element, similar to a border but without affecting the layout. It is often used for focus indicators or visual emphasis. Here are some key points about outlines:
+    1. outline-color: Sets the color of the outline.
+       Example: `outline-color: red;`
+    2. outline-style: Sets the style of the outline (e.g., solid, dashed, dotted).
+       Example: `outline-style: solid;`
+    3. outline-width: Sets the width of the outline.
+       Example: `outline-width: 2px;`
+    4. outline: A shorthand property that sets all three outline properties at once.
+       Example: `outline: 2px solid red;`
+  7.Button:
+  The button element in HTML is used to create clickable buttons that can trigger actions or submit forms. It can be styled using CSS to enhance its appearance. Here are some key points about buttons:
+  1. Button Types: The button element can have different types, such as "submit," "reset," or "button." The default type is "submit."
+     Example: `<button type="submit">Submit</button>`
+  8.Display:
+    defines how an element is displayed on the page. It can control whether an element is block-level, inline, or hidden. Here are some key display properties:
+    1. display: block; - Makes an element a block-level element, taking up the full width available.
+       Example: `div { display: block; }`
+  9.Position:
+    The position property in CSS is used to control the positioning of an element within its containing block. It can be set to different values, such as static, relative, absolute, fixed, or sticky. Here are some key points about positioning:
+    1. position: static; - The default value, where the element is positioned according to the normal flow of the document.
+       Example: `div { position: static; }`
+    2. position: relative; - Positions the element relative to its normal position.
+       Example: `div { position: relative; top: 10px; left: 20px; }`
+    3. position: absolute; - Positions the element relative to its nearest positioned ancestor (not static).
+       Example: `div { position: absolute; top: 50px; right: 30px; }`
+    4. position: fixed; - Positions the element relative to the viewport, remaining fixed during scrolling.
+       Example: `div { position: fixed; bottom: 0; left: 0; }`
+    5. position: sticky; - Combines relative and fixed positioning, sticking to a specified position during scrolling.
+       Example: `div { position: sticky; top: 0; }`
+  10.OverFlow:
+    The overflow property in CSS is used to control how content that overflows an element's box is handled. It can specify whether to clip the content, add scrollbars, or allow it to be visible. Here are some key points about overflow:
+    1. overflow: visible; - The default value, where overflowing content is visible outside the element's box.
+       Example: `div { overflow: visible; }`
+    2. overflow: hidden; - Clips the overflowing content and hides it.
+       Example: `div { overflow: hidden; }`
+    3. overflow: scroll; - Adds scrollbars to the element, allowing users to scroll through the overflowing content.
+       Example: `div { overflow: scroll; }`
+    4. overflow: auto; - Adds scrollbars only when necessary (when content overflows).
+       Example: `div { overflow: auto; }`
+       
+
+
+JavaScript
+ 1.there are 3 types of variables:
+  let 
+  var -global variable 
+  const -we can't change the value after initializing 
+2.there are 2 types of datatype:
+ premitive datatype:
+  number -represents numeric values
+  string -represents text values enclosed in quotes
+  boolean -represents true or false values
+  null -represents the absence of Value
+3.Operators:
+  Arithmetic Operators: Used for mathematical operations.
+    Example: `+`, `-`, `*`, `/`, `%`
+  Assignment Operators: Used to assign values to variables.
+    Example: `=`, `+=`, `-=`
+  Comparison Operators: Used to compare values.
+    Example: `==`, `===`, `!=`, `!==`, `<`, `>`, `<=`, `>=`
+  Logical Operators: Used to perform logical operations.
+    Example: `&&` (AND), `||` (OR), `!` (NOT)
+  Conditional (Ternary) Operator: A shorthand for if-else statements.
+    Example: `condition ? valueIfTrue : valueIfFalse`
+  Increment/Decrement Operators: Used to increase or decrease a variable's value by one.
+    Example: `++` (increment), `--` (decrement)
+    Bitwise Operators: Used to perform operations on binary representations of numbers. 
+    Example: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), `>>` (right shift)
+ 4.Conditional Statements:      
+    Conditional statements allow you to execute different code blocks based on certain conditions. The most common conditional statements are:
+        if statement: Executes a block of code if a specified condition is true.
+        Example: 
+        ```javascript
+        if (condition) {
+            // code to execute if condition is true
+        }
+        ```
+        else statement: Executes a block of code if the condition in the if statement is false.
+        Example: 
+        ```javascript
+        if (condition) {
+            // code to execute if condition is true
+        } else {
+            // code to execute if condition is false
+        }
+        ```
+        else if statement: Allows you to check multiple conditions in sequence.
+        Example: 
+        ```javascript
+        if (condition1) {
+            // code to execute if condition1 is true
+        } else if (condition2) {
+            // code to execute if condition2 is true
+        } else {
+            // code to execute if neither condition1 nor condition2 is true
+     5.boolean:
+        Boolean values represent truthiness or falsiness. In JavaScript, the boolean data type can have two values: true or false. 
+        Example: 
+        ```javascript
+        let isTrue = true;
+        let isFalse = false;
+        ```
+        Boolean values are often used in conditional statements to control the flow of execution based on certain conditions.
+    6.Numbers,Strings,Arrays,Objects:
+        Numbers: Represents numeric values, both integers and floating-point numbers.
+        Example: 
+        ```javascript
+        let age = 25; // integer
+        let price = 19.99; // floating-point number
+        ```
+        Strings: Represents text values enclosed in single or double quotes.
+        Example: 
+        ```javascript
+        let name = "John Doe";
+        let greeting = 'Hello, World!';
+        ```
+        Arrays: Represents ordered collections of values, which can be of any data type.
+        Example: 
+        ```javascript
+        let fruits = ["apple", "banana", "orange"];
+        ```
+        Objects: Represents collections of key-value pairs, where keys are strings and values can be of any data type.
+ 7. Function
+   1.Named Function
+   2.Anonymous Function
+   3.Function Expressionn
+   4.Arrow Function
+    Example:
+    ```javascript       
+    const add = (a, b) => a + b;
+    console.log(add(5, 3)); // Output: 8
+    ```
+   5.IIFE (Immediately Invoked Function Expression)     
+   6.Methods
+   7.Callback Function
+   8.Constructor Function
+   9.Generator Function
+   10.Async Function
+   11.Recursive Function
+   
+
+   loops:
+   for in
+   for of 
+   for each
+   while
+   do whilenpm 
+
+   how to create react.js project
+     npm create vite@latest //first step
+     type the project name //second step
+     select the react //third step
+      select the javascript //4th step
+      change the path of project // cd {project Name}  //5th step
+      use npm install //will load the requie package for the project
+      use "npm run dev" //run the project 
+
+
+
++++++++=========
+day3 :
+Javascript provides the date object to work with dates and times
+ example:
+  let todsay = new Date();
+  console.log(today); // Outputs the current date and time
+  let specificDate = new Date('2023-10-01');
+  console.log(specificDate); // Outputs the specified date
+   common methods:
+     get full year() - Returns the year of the date
+     getMonth() - Returns the month (0-11) of the date
+     getDate() - Returns the day of the month (1-31) of the date
+     getHours() - Returns the hour (0-23) of the date    
+     getMinutes() - Returns the minutes (0-59) of the date
+     getSeconds() - Returns the seconds (0-59) of the date
+     getTime() - Returns the number of milliseconds since January 1, 1970
+     getDay() - Returns the day of the week (0-6) of the date
+     setFullYear(year) - Sets the year of the date
+
+     setMonth(month) - Sets the month (0-11) of the date
+     setDate(day) - Sets the day of the month (1-31) of the date
+     setHours(hour) - Sets the hour (0-23) of the date
+     setMinutes(minutes) - Sets the minutes (0-59) of the date
+     setSeconds(seconds) - Sets the seconds (0-59) of the date
+     setTime(milliseconds) - Sets the date based on the number of milliseconds since January 1, 1970 
+     toDateString() - Returns a string representation of the date
+     toISOString() - Returns the date in ISO 8601 format
+
+let fruits = ["Apple", "Banana", "Cherry"];
+console.log("Original Array:", fruits[0]);
+fruits.push("Mango"); // Add an element to the end
+console.log("After Push:", fruits);
+let colors = ["Red", "Green", "Blue"];
+colors.push("Yellow"); // Add an element to the end
+console.log("Colors Array:", colors);
+1.pop()
+// Remove the last element
+console.log("After Pop:", fruits);
+2.shift()
+// Remove the first element
+console.log("After Shift:", fruits);
+3.unshift()
+// Add an element to the beginning  
+console.log("After Unshift:", fruits);
+4.splice()
+// Remove elements from a specific index
+console.log("After Splice:", fruits);
+5.slice()
+// Create a new array with a portion of the original array
+console.log("After Slice:", fruits.slice(1, 3)); // Get elements from index 1 to 2
+6.indexOf()
+// Find the index of an element
+console.log("Index of 'Banana':", fruits.indexOf("Banana"));
+7.includes()
+// Check if an element exists in the array
+console.log("Includes 'Cherry':", fruits.includes("Cherry"));
+8.join()
+// Join array elements into a string
+console.log("Joined Array:", fruits.join(", "));
+9.reverse()
+// Reverse the order of elements
+console.log("Reversed Array:", fruits.reverse());
+10.sort()
+// Sort the array in ascending order
+console.log("Sorted Array:", fruits.sort())
+11.map()
+// Create a new array with modified elements
+console.log("Mapped Array:", fruits.map(fruit => fruit.toUpperCase()));
+12.filter()
+// Create a new array with elements that meet a condition
+console.log("Filtered Array:", fruits.filter(fruit => fruit.startsWith("B")));
+13.reduce()
+// Reduce the array to a single value
+console.log("Reduced Value:", fruits.reduce((acc, fruit) => acc + fruit.length, 0)); // Sum of lengths of all elements
+14.forEach()
+// Execute a function for each element in the array
+fruits.forEach(fruit => console.log("Fruit:", fruit));
+15.find()
+// Find the first element that meets a condition
+console.log("Found Element:", fruits.find(fruit => fruit.startsWith("C"))); // Find the first element starting with "C"
+16.every()
+// Check if all elements meet a condition       
+console.log("Every Element Starts with 'A':", fruits.every(fruit => fruit.startsWith("A"))); // Check if all elements start with "A"
+17.some()
+// Check if at least one element meets a condition
+console.log("Some Element Starts with 'A':", fruits.some(fruit => fruit.startsWith("A"))); // Check if at least one element starts with "A"
+18.concat()
+// Combine two or more arrays into a new array
+let moreFruits = ["Orange", "Grapes"];
+console.log("Concatenated Array:", fruits.concat(moreFruits)); // Combine fruits and moreFruits arrays
+
+19.fill()
+// Fill an array with a specific value
+console.log("Filled Array:", fruits.fill("Pineapple", 1, 3)); // Fill elements from index 1 to 2 with "Pineapple"
+20.findIndex()
+// Find the index of the first element that meets a condition
+console.log("Index of First Element Starting with 'B':", fruits.findIndex(fruit => fruit.startsWith("B"))); // Find index of first element starting with "B"
+
+
+
+Objects:
+
+group related data and functions together
+easy to read and manage
+
+1. Object Creation: You can create objects using object literals or the `new Object()` syntax.
+   Example:
+   ```javascript
+   let person = {
+       name: "John",
+       age: 30,
+       address:{
+              street: "123 Main St",
+              city: "New York"
+         },
+   };
+   ```
+  1.Higher Order Function:
+    A higher order functions is:
+      * A function that takes another function as arguement 
+      ,or
+      * a function that returns another function .
+      function greet(){
+      return "HEllo" +name;
+      }
+      function ProcessUser(callback){
+      let username ="Asha";
+      console.log(callback(username));
+      }
+      processUser(greet);
+   1. set:
+     it doesnot allows the duplicate Values 
+     let set1 =new Set(['apple','banana','grapes','mango']);
+        console.log(set1)
+        set1.add('Strawberry');
+        set1.add('Pomogranet');
+        set1.add('cherry');
+        set1.delete('mango');
+        console.log(set1);
+        console.log(set1.has('banana'));
+        console.log(set1.delete('cherry'));
+
+  2. map():
+      const mymap =new Map()
+      mymap.set("name","Alice");
+      mymap.set("age",21);
+      console.log(mymap.get("name"));
+      const Mymap =new Map();
+      Mymap
+
+      set(key,value);
+      get(key)
+      has(key)
+      delete(key)
+
+      const employees =new Map()
+      employees.set("id",101);
+      employees.set("fullname","Nandhini");
+      employees.set("age",30);
+      console.log(employees.size);
+      console.log(employees)
+      console.log(employees.get("fullname"));
+      employees.delete("age");
+      console.log(employees.has("age"));
+      employees.clear();
+      console.log(employees.size);
+
+      3.Destructuring in JavaScript:
+      Destructuring means breaking down arrays or objects into individhual variables 
+       let marks = [85, 90, 78];
+         let [math, science, english] = marks;
+            console.log(math); // 85
+        let names =["manish","kumar","Ramesh","Suresh","Rajesh"];
+        let marks =[97,40,30,50];
+        const [a1,b1,c1,d1,e1] = names;
+        const [a2,b2,c2,d2,e2] = marks; 
+        console.log(a1, b1, c1, d1, e1); // manish kumar Ramesh Suresh Rajesh
+        console.log(a2, b2, c2, d2, e2); //
+        // 97 40 30 50
+        const student= {
+        name: "Asha",
+        age : 19,
+        course: "BCA"
+        };
+        const {name,age,course } =student;
+        console.log(name); //"Asha"
+        console.log(course);//"BCA"
+        console.log(age); //19
+
+
+        4.Spread Operator:
+        The spread operator (`...`) allows you to expand elements of an iterable (like an array) into individual elements. It can be used to create shallow copies of arrays or objects, or to merge them.
+        Example with Arrays:
+        ```javascript
+        let numbers = [1, 2, 3];
+        let moreNumbers = [...numbers, 4, 5];
+        console.log(moreNumbers); // Output: [1, 2, 3, 4, 5]
+
+         example :2
+         let names =["Nandhu","kavya","Asha","KavyaDharshinin"];
+         let missingnames=["John","Dev","Karthick"]
+         const allnames =[...names, ...missingnames];
+         console.log(allnames);
+
+          example :3'
+          const obj1 ={name:"Nandhu"};
+          const obj2 ={age: 19};
+          const merged =(...obj1, ...obj2);
+          console.log(merged);
+        what is the console object in javascript?
+        console.log -displays a general message or value
+        console.error- displays an error message (in red)
+        console.warn -displays a warning message (in yellow)
+        console.info -displays an informational message
+        console.table -displays data in a table format
+        console.group -groups related messages togethe
+        console.groupEnd -ends a group of messages
+        console.time -starts a timer for measuring performance
+        console.timeEnd -stops the timer and displays the elapsed time
+        console.assert -tests a condition and displays a message if the condition is false
+        console.trace -displays the call stack leading to the current point in the code
+        console.clear -clears the console output
+        console.dir -displays an interactive list of the properties of a specified JavaScript object
+        console.count -counts the number of times a specific label has been called
+        console.countReset -resets the count for a specific label
+        console.log("Hello, World!"); // Displays "Hello, World!" in the console
+        console.error("This is an error message"); // Displays an error message in red
+        console.warn("This is a warning message"); // Displays a warning message in yellow
+        console.info("This is an informational message"); // Displays an informational messag
+        console.table([{ name: "Alice", age: 30 }, { name: "Bob", age: 25 }]); // Displays data in a table format
+        console.group("My Group"); // Starts a group of messages                                                                                                                        
+        console.log("Message 1 in group"); // Displays a message within the group
+        console.log("Message 2 in group"); // Displays another message within the group
+        console.groupEnd(); // Ends the group of messages
+        console.time("My Timer"); // Starts a timer
+        // Some code to measure performance
+        console.timeEnd("My Timer"); // Stops the timer and displays the elapsed time
+        console.assert(1 === 2, "This assertion failed"); // Displays a message if the condition is false
+        console.trace(); // Displays the call stack leading to this point in the code
+        console.clear(); // Clears the console output
+        console.dir(document.body); // Displays an interactive list of properties of the document body
+        console.count("Counter"); // Counts the number of times "Counter" has been called
+        console.countReset("Counter"); // Resets the count for "Counter"
+
+     7.eval():
+        The eval() function in JavaScript evaluates a string as JavaScript code and executes it. It can be used to dynamically execute code at runtime. However, it is generally discouraged due to security and performance concerns.
+        Example:
+        ```javascript
+        let code = "console.log('Hello from eval!');";
+        eval(code); // Outputs: Hello from eval!
+        ```
+        Note: Use eval() with caution, as it can execute arbitrary code and may lead to security vulnerabilities if the input is not controlled.
+    8.web Storage:
+        Web Storage is a feature in web browsers that allows you to store data locally on the user's device. It provides two main types of storage:
+        1. Local Storage: Stores data with no expiration date, meaning it persists even after the browser is closed.
+           Example:
+           ```javascript
+           localStorage.setItem("username", "JohnDoe");
+           console.log(localStorage.getItem("username")); // Outputs: JohnDoe
+           ```
+        2. Session Storage: Stores data for the duration of the page session, meaning it is cleared when the page is closed.
+           Example:
+           ```javascript
+           sessionStorage.setItem("sessionData", "Some data");
+           console.log(sessionStorage.getItem("sessionData")); // Outputs: Some data
+           ```
+        9.closures:
+        A closure is a function that retains access to its lexical scope, even when the function is executed outside that scope. It allows you to create private variables and functions.   
+        Example:
+        ```javascript   
+        function outerFunction() {
+            let privateVariable
+            = "I am private";
+
+            function innerFunction() {
+                console.log(privateVariable); // Accesses the private variable
+            }
+            return innerFunction; // Returns the inner Function
+        }
+        let closureFunction = outerFunction();
+        closureFunction(); // Outputs: I am private
+        ```
+        Manipulating DOM objects:
+        you can change content,style and sturucture of web pages .
+        method                               |Description
+        -------------------------------------|----------------------------------------
+        document.getElementById(id)          | Selects an element by its ID
+        document.getElementsByClassName(className) | Selects elements by their class name   
+        document.getElementsByTagName(tagName) | Selects elements by their tag name
+        document.querySelector(selector)     | Selects the first element that matches the CSS selector          
+        document.querySelectorAll(selector)  | Selects all elements that match the CSS selector
+        element.innerHTML                    | Gets or sets the HTML content of an element
+        element.textContent                  | Gets or sets the text content of an element
+        element.style.property               | Gets or sets the CSS style property of an element
+        element.setAttribute(attribute, value) | Sets an attribute on an element
+        element.getAttribute(attribute)      | Gets the value of an attribute on an element
+        =====================================================
+         self JavaScript:
+         

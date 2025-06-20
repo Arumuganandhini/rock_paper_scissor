@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(0,115,255);
+        font-family: Arial, sans-serif;
+      }
+      
+      .calculator {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+      
+      #display {
+        width: 100%;
+        height: 50px;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: right;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+      }
+      
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 60px);
+        grid-gap: 10px;
+        background-color: blanchedalmond;
+      }
+      
+      button {
+        height: 60px;
+        font-size: 20px;
+        background-color: skyblue;
+        color:black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color:pink;
+      }
+      
+
+</style>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+    
+        <div class="buttons">
+          <button style="background-color:orange;">+</button>
+          <button style="background-color: orange;">-</button>
+          <button style="background-color:orange;">X</button>
+          <button style="background-color:orange;">/</button>
+    
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>4</button>
+    
+          <button>5</button>
+          <button>6</button>
+          <button>1</button>
+          <button>2</button>
+    
+          <button>3</button>
+          <button>0</button>
+          <button>.</button>
+          <button style=" background-color:red">C</button>
+          <button style=" background-color:green"  height="20px"width="100px">=</button>        </div>
+      </div>
+</body>
+</html>
